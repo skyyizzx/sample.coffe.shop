@@ -1,0 +1,26 @@
+.coffee-shop {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+    color: #343a40;
+}
+
+.coffee-shop h1 {
+    color: #6f42c1;
+}
+
+.coffee-shop .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.coffee-shop .menu-item {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.coffee-shop .menu-item:hover {
+    background-color: #e9ecef;
+}
