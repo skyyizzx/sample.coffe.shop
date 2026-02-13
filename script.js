@@ -1,37 +1,22 @@
 // script.js
 
-// Smooth scrolling to anchor links
-const smoothScrollTo = (target) => {
-    document.querySelector(target).scrollIntoView({
-        behavior: 'smooth'
-    });
-};
+// Smooth scrolling for anchor links
+const scrollLinks = document.querySelectorAll('a[href^="#"]');
 
-// Mobile menu toggle
-const mobileMenuToggle = () => {
-    const menu = document.querySelector('.mobile-menu');
-    menu.classList.toggle('active');
-};
-
-// Event listener for menu toggle button
-const menuToggleButton = document.querySelector('.menu-toggle');
-if (menuToggleButton) {
-    menuToggleButton.addEventListener('click', mobileMenuToggle);
-}
-
-// Interactivity for coffee items (example)
-const coffeeItems = document.querySelectorAll('.coffee-item');
-coffeeItems.forEach(item => {
-    item.addEventListener('click', () => {
-        alert(`You selected ${item.dataset.coffeeName}`);
+scrollLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({
+            behavior: 'smooth'
+        });
     });
 });
 
-// Smooth scrolling for internal links
-const internalLinks = document.querySelectorAll('a[href^="#"]');
-internalLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent default anchor click behavior
-        smoothScrollTo(this.getAttribute('href'));
-    });
+// Mobile menu functionality
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
 });
