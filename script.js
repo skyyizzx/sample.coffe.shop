@@ -1,22 +1,22 @@
-// script.js
+// script.js for Coffee Shop Website
 
-// Smooth scrolling for anchor links
-const scrollLinks = document.querySelectorAll('a[href^="#"]');
+//Functionality for adding coffee to cart
+const addToCart = (coffee) => {
+    console.log(`${coffee} added to cart`);
+};
 
-scrollLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({
-            behavior: 'smooth'
-        });
+//Functionality to display coffee options
+const displayCoffees = (coffees) => {
+    coffees.forEach(coffee => {
+        console.log(`Coffee: ${coffee.name}, Price: ${coffee.price}`);
     });
-});
+};
 
-// Mobile menu functionality
-const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('nav');
+// Example coffee data
+const coffees = [
+    { name: 'Espresso', price: 3.00 },
+    { name: 'Latte', price: 3.50 },
+    { name: 'Cappuccino', price: 3.75 }
+];
 
-menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-});
+displayCoffees(coffees);
